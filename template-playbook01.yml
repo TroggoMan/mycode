@@ -1,0 +1,20 @@
+---
+- name: Exploring the template module and jinja expressions
+  hosts: planetexpress
+  gather_facts: no
+  connection: ssh
+
+
+  vars:
+    ship_name: Bessie
+    ship_type: Intergalactic
+    engines: Dark Matter
+    dark_matter_balls: 63
+    backup_engines: Chemical
+
+
+  tasks:
+    - name: Configure spaceship registration
+      template:
+        src: templates/ship.cfg.j2
+        dest: ~/ship.cfg

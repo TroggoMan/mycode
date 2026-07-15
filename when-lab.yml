@@ -1,0 +1,14 @@
+---
+- name: Our filst play
+  hosts: planetexpress
+  gather_facts: yes
+  connection: ssh
+
+
+  tasks:
+    - name: Install steam locomotive on Ubuntu machines
+      apt:
+        name: sl
+        state: present
+      become: yes
+      when: ansible_distribution == "Ubuntu"
